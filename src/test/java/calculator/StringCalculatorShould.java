@@ -38,4 +38,9 @@ class StringCalculatorShould {
     public void should_throw_IllegalArgumentException_if_string_has_comma_as_a_first_character() {
         stringCalculator.add(",1,2,3");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_IllegalArgumentException_when_passed_string_has_duplicated_commas() {
+        stringCalculator.add("1,,3");
+    }
 }
