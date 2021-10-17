@@ -45,7 +45,11 @@ class StringCalculatorShould {
     }
 
     @Test
-    public void should_return_sum_when_passed_string_has_comma_as_last_character() {
+    public void return_sum_if_passed_string_has_comma_as_last_character() {
         assertEquals(stringCalculator.add("1,2,3,"),6);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_IllegalArgumentException_when_passed_string_has_space_character() {
+        stringCalculator.add("1,2, 3");
     }
 }
