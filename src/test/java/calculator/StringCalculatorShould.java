@@ -17,4 +17,16 @@ class StringCalculatorShould {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(1, stringCalculator.add("1"));
     }
+
+    private StringCalculator stringCalculator;
+
+    @Before
+    public void setUp() {
+        stringCalculator = new StringCalculator();
+    }
+
+    @Test
+    public void return_0_if_string_is_empty() {
+        assertEquals(stringCalculator.add(""), 0);
+    }
 }
