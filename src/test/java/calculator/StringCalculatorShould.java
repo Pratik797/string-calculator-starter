@@ -33,4 +33,9 @@ class StringCalculatorShould {
     public void should_throw_IllegalArgumentException_if_string_is_not_a_number() {
         stringCalculator.add("1,s,3");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_IllegalArgumentException_if_string_has_comma_as_a_first_character() {
+        stringCalculator.add(",1,2,3");
+    }
 }
