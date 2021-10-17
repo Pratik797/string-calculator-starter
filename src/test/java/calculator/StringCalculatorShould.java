@@ -40,7 +40,12 @@ class StringCalculatorShould {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void should_throw_IllegalArgumentException_when_passed_string_has_duplicated_commas() {
+    public void should_throw_IllegalArgumentException_if_string_has_duplicated_commas() {
         stringCalculator.add("1,,3");
+    }
+
+    @Test
+    public void should_return_sum_when_passed_string_has_comma_as_last_character() {
+        assertEquals(stringCalculator.add("1,2,3,"),6);
     }
 }
