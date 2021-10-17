@@ -2,6 +2,7 @@ package calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 class StringCalculatorShould {
 
@@ -49,7 +50,12 @@ class StringCalculatorShould {
         assertEquals(stringCalculator.add("1,2,3,"),6);
     }
     @Test(expected = IllegalArgumentException.class)
-    public void should_throw_IllegalArgumentException_when_passed_string_has_space_character() {
+    public void should_throw_IllegalArgumentException_if_passed_string_has_space_() {
         stringCalculator.add("1,2, 3");
+    }
+    @Test
+    public void should_throw_IllegalArgumentException_when_passed_string_has_tabulation_character() {
+        Assertions.assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> stringCalculator.add("1,2 ,3"));
     }
 }
